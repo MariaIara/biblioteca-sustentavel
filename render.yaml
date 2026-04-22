@@ -1,0 +1,47 @@
+services:
+  - type: web
+    name: biblioteca-sustentavel
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_KEY
+        sync: false          # você define manualmente no painel do Render
+      - key: APP_URL
+        sync: false          # será a URL gerada pelo Render (ex: https://biblioteca-sustentavel.onrender.com)
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        fromDatabase:
+          name: biblioteca-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: biblioteca-db
+          property: port
+      - key: DB_DATABASE
+        fromDatabase:
+          name: biblioteca-db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: biblioteca-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: biblioteca-db
+          property: password
+      - key: SESSION_DRIVER
+        value: database
+      - key: CACHE_STORE
+        value: database
+
+databases:
+  - name: biblioteca-db
+    databaseName: biblioteca
+    user: biblioteca
+    plan: free
