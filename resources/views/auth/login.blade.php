@@ -6,7 +6,20 @@
     <title>Login — Biblioteca Sustentável</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+        }
+        @layer base {
+            body { @apply antialiased; }
+        }
+        @layer components {
+            .form-input {
+                @apply block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder-slate-400 shadow-sm focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200 transition;
+            }
+        }
+    </style>
 </head>
 <body class="h-full bg-[#1e3a8a]">
 

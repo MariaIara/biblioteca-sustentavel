@@ -6,7 +6,61 @@
     <title>@yield('title', 'Biblioteca') — Biblioteca Sustentável</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+            --color-navy-700: #1e3a8a;
+            --color-navy-800: #1e3270;
+        }
+
+        @layer base {
+            body { @apply bg-slate-50 text-slate-800 antialiased; }
+            h1, h2, h3, h4, h5 { @apply font-semibold tracking-tight; }
+        }
+
+        @layer components {
+            .btn-primary {
+                @apply inline-flex items-center gap-2 rounded-lg bg-amber-700 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-amber-800 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 transition-colors;
+            }
+            .btn-secondary {
+                @apply inline-flex items-center gap-2 rounded-lg bg-[#1e3a8a] px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#1e3270] focus:outline-none transition-colors;
+            }
+            .btn-ghost {
+                @apply inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-100 focus:outline-none transition-colors;
+            }
+            .btn-danger {
+                @apply inline-flex items-center gap-2 rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-700 focus:outline-none transition-colors;
+            }
+            .card {
+                @apply bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden;
+            }
+            .form-label {
+                @apply block text-sm font-medium text-slate-700 mb-1;
+            }
+            .form-input {
+                @apply block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder-slate-400 shadow-sm focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200 transition;
+            }
+            .form-select {
+                @apply block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200 transition;
+            }
+            .form-textarea {
+                @apply block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder-slate-400 shadow-sm focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200 transition resize-y;
+            }
+            .badge-available {
+                @apply inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-semibold text-emerald-700;
+            }
+            .badge-borrowed {
+                @apply inline-flex items-center gap-1 rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-semibold text-amber-700;
+            }
+            .badge-overdue {
+                @apply inline-flex items-center gap-1 rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-semibold text-red-700;
+            }
+            .badge-returned {
+                @apply inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-600;
+            }
+        }
+    </style>
 </head>
 <body class="h-full bg-slate-50">
 
