@@ -62,9 +62,9 @@
         }
     </style>
 </head>
-<body class="h-full bg-slate-50">
+<body class="h-screen overflow-hidden bg-slate-50">
 
-<div class="flex h-full min-h-screen">
+<div class="flex h-screen">
     {{-- Sidebar --}}
     <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-[#1e3a8a] shadow-xl transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col">
         {{-- Logo --}}
@@ -165,9 +165,9 @@
     <div id="sidebar-overlay" class="fixed inset-0 z-40 bg-black/50 lg:hidden hidden" onclick="toggleSidebar()"></div>
 
     {{-- Main content --}}
-    <div class="flex flex-1 flex-col lg:pl-64">
+    <div class="flex flex-1 flex-col lg:pl-64 overflow-hidden">
         {{-- Top bar --}}
-        <header class="sticky top-0 z-30 flex h-16 items-center gap-4 bg-white border-b border-slate-200 px-4 sm:px-6 shadow-sm">
+        <header class="flex h-16 shrink-0 items-center gap-4 bg-white border-b border-slate-200 px-4 sm:px-6 shadow-sm">
             <button onclick="toggleSidebar()" class="lg:hidden p-2 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors">
                 <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -188,10 +188,11 @@
             </div>
         </header>
 
-        {{-- Flash messages --}}
-        <div class="px-4 sm:px-6 pt-4">
+        {{-- Área rolável --}}
+        <div class="flex-1 overflow-y-auto">
+            {{-- Flash messages --}}
             @if(session('success'))
-                <div class="flex items-center gap-3 rounded-xl bg-emerald-50 border border-emerald-200 px-4 py-3 text-sm text-emerald-800 mb-4">
+                <div class="mx-4 sm:mx-6 mt-4 flex items-center gap-3 rounded-xl bg-emerald-50 border border-emerald-200 px-4 py-3 text-sm text-emerald-800">
                     <svg class="h-5 w-5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
@@ -199,19 +200,19 @@
                 </div>
             @endif
             @if(session('error'))
-                <div class="flex items-center gap-3 rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-800 mb-4">
+                <div class="mx-4 sm:mx-6 mt-4 flex items-center gap-3 rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-800">
                     <svg class="h-5 w-5 text-red-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                     {{ session('error') }}
                 </div>
             @endif
-        </div>
 
-        {{-- Page content --}}
-        <main class="flex-1 px-4 sm:px-6 pb-8">
-            @yield('content')
-        </main>
+            {{-- Page content --}}
+            <main class="px-4 sm:px-6 py-6 pb-10">
+                @yield('content')
+            </main>
+        </div>
     </div>
 </div>
 

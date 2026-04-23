@@ -4,7 +4,7 @@
 @section('page-title', 'Detalhes do Livro')
 
 @section('content')
-<div class="space-y-6 pt-2">
+<div class="space-y-6">
     <div class="flex items-center gap-4">
         <a href="{{ route('books.index') }}" class="btn-ghost">
             <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

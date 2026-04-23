@@ -4,7 +4,7 @@
 @section('page-title', 'Funcionários')
 
 @section('content')
-<div class="space-y-5 pt-2">
+<div class="space-y-5">
     <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <form method="GET" action="{{ route('employees.index') }}" class="flex gap-2 flex-1 max-w-md">
             <div class="relative flex-1">

@@ -4,7 +4,7 @@
 @section('page-title', 'Empréstimos')
 
 @section('content')
-<div class="space-y-5 pt-2">
+<div class="space-y-5">
     {{-- Filters --}}
     <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div class="flex gap-2 flex-wrap">

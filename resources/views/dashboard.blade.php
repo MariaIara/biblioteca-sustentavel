@@ -4,7 +4,7 @@
 @section('page-title', 'Dashboard')
 
 @section('content')
-<div class="space-y-6 pt-2">
+<div class="space-y-6">
 
     {{-- Stats cards --}}
     <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">

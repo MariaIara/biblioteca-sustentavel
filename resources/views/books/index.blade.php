@@ -4,7 +4,7 @@
 @section('page-title', 'Acervo de Livros')
 
 @section('content')
-<div class="space-y-5 pt-2">
+<div class="space-y-5">
     {{-- Header --}}
     <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <form method="GET" action="{{ route('books.index') }}" class="flex gap-2 flex-1 max-w-lg">
